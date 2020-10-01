@@ -26,7 +26,7 @@
 bool Video::enabled_ = true;
 
 
-Video::Video(std::string file, std::string altFile, int numLoops, Page &p)
+Video::Video(std::string file, std::string altFile, int numLoops, Page &p, int monitor)
     : Component(p)
     , video_(NULL)
     , file_(file)
@@ -34,7 +34,8 @@ Video::Video(std::string file, std::string altFile, int numLoops, Page &p)
     , numLoops_(numLoops)
 
 {
-    allocateGraphicsMemory( );
+    baseViewInfo.Monitor = monitor;
+    allocateGraphicsMemory( );    
 }
 
 Video::~Video( )
